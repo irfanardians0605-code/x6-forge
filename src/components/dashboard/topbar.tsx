@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
 
@@ -29,30 +30,33 @@ export default function Topbar() {
 <div
   className="
     flex
-    h-10
-    w-10
+    h-11
+    w-11
     items-center
     justify-center
-    rounded-lg
-    bg-gradient-to-br
-    from-cyan-400
-    to-blue-600
-    font-bold
-    text-white
+    rounded-xl
+    overflow-hidden
   "
 >
-  X6
+  <Image
+    src="/logo/logo.svg"
+    alt="X6 Forge"
+    width={100}
+    height={64}
+    priority
+    className="h-full w-full object-contain"
+  />
 </div>
 
           <div>
 
-            <h1 className="text-lg font-semibold text-white">
+            <h1 className="text-xl font-bold tracking-tight text-white">
               X6 Forge
             </h1>
 
             <p className="text-[11px] text-zinc-500">
-              Autonomous Crypto Research
-            </p>
+  On-Chain Intelligence
+</p>
 
           </div>
 

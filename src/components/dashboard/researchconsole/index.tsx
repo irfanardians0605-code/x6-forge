@@ -6,6 +6,7 @@ import ContractInput from "./contractinput";
 import Pipeline from "./pipeline";
 import SystemLog from "./systemlog";
 import Report from "./report";
+import { saveHistory } from "@/lib/history/storage";
 
 export default function ResearchConsole() {
 
@@ -43,7 +44,41 @@ console.log("===== X6 RESULT =====");
 console.log(result);
 console.log("=====================");
 
-setAnalysis(result);
+if (result?.report) {
+  saveHistory({
+    id: crypto.randomUUID(),
+
+    timestamp: Date.now(),
+
+    target,
+
+    token: result.report.name,
+    symbol: result.report.token,
+
+    chain: result.report.chain,
+
+    priceUsd: Number(result.report.priceUsd),
+
+    liquidityUsd: Number(result.report.liquidityUsd),
+
+    volume24h: Number(result.report.volume24h),
+
+    fdv: Number(result.report.fdv),
+
+    risk: result.report.risk,
+
+    score: result.report.score,
+
+    verified:
+      result.report.verification?.verified ?? false,
+
+    confidence:
+      result.report.verification?.confidence ?? 0,
+
+    report: result.report,
+  });
+}
+
 
       setAnalysis(result);
 

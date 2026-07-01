@@ -9,45 +9,45 @@ export function buildReport(
     // ==========================
 
     token:
-      analysis.forge?.data?.symbol,
+    analysis.forge?.data?.symbol ?? "UNKNOWN",
 
     name:
-      analysis.forge?.data?.name,
+    analysis.forge?.data?.name ?? "Unknown Token",
 
     chain:
-      analysis.forge?.data?.chain,
+    analysis.forge?.data?.chain ?? "BASE",
 
     // ==========================
     // Market
     // ==========================
 
     priceUsd:
-      analysis.forge?.data?.priceUsd,
+    Number(analysis.forge?.data?.priceUsd ?? 0),
 
     liquidityUsd:
-      analysis.forge?.data?.liquidityUsd,
+   Number(analysis.forge?.data?.liquidityUsd ?? 0),
 
     volume24h:
-      analysis.forge?.data?.volume24h,
+     Number(analysis.forge?.data?.volume24h ?? 0),
 
     fdv:
-      analysis.forge?.data?.fdv,
+    Number(analysis.forge?.data?.fdv ?? 0),
 
     // ==========================
     // Security
     // ==========================
 
     score:
-      analysis.aegis?.data?.score,
+    Number(analysis.aegis?.data?.score ?? 0),
 
     risk:
-      analysis.aegis?.data?.risk,
+    analysis.aegis?.data?.risk ?? "HIGH",
 
     liquidityHealth:
-      analysis.aegis?.data?.liquidityHealth,
+    analysis.aegis?.data?.liquidityHealth ?? "UNKNOWN",
 
     security:
-      analysis.aegis?.data?.checks,
+    analysis.aegis?.data?.checks ?? [],
 
     // ==========================
     // Contract
@@ -90,29 +90,29 @@ export function buildReport(
 
     verification: {
 
-      verified:
-        analysis.cipher?.data?.verified,
+  verified:
+    analysis.cipher?.data?.verified ?? false,
 
-      confidence:
-        analysis.cipher?.data?.confidence,
+  confidence:
+    Number(analysis.cipher?.data?.confidence ?? 0),
 
-      priceMatch:
-        analysis.cipher?.data?.priceMatch,
+  priceMatch:
+    analysis.cipher?.data?.priceMatch ?? false,
 
-      sources:
-        analysis.cipher?.data?.sources,
+  sources:
+    analysis.cipher?.data?.sources ?? [],
 
-    },
-
+},
     // ==========================
     // AI Reasoning
     // ==========================
 
-    summary:
-      analysis.trace?.data?.insight,
+   summary:
+  analysis.trace?.data?.insight ??
+  "No analysis available.",
 
-    reasoning:
-      analysis.trace?.data?.reasoning,
+reasoning:
+  analysis.trace?.data?.reasoning ?? [],
 
   };
 
