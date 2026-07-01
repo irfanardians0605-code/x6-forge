@@ -2,7 +2,7 @@ import { runX6Forge }
 from "../../../lib/core/x6forge";
 
 import { buildReport }
-from "../../../lib/reports/report";
+from "../../../lib/report/report";
 
 export async function GET() {
 

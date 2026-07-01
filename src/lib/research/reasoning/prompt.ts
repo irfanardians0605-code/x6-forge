@@ -52,7 +52,7 @@ AVAILABLE EVIDENCE
 ${context.evidence
   .map(
     (item) =>
-      `• ${item.title}: ${item.value}`
+      `• ${item.title}: ${JSON.stringify(item.data)}`
   )
   .join("\n")}
 
