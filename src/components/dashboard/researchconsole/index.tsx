@@ -126,21 +126,26 @@ if (result?.report) {
 
       {/* BODY */}
 
-      <div
-        className="
-          grid
-          grid-cols-12
-        "
-      >
+     <div
+  className="
+    grid
+
+    grid-cols-1
+    lg:grid-cols-12
+  "
+>
 
         <div
-          className="
-            col-span-8
+  className="
+    lg:col-span-8
 
-            border-r
-            border-zinc-800
-          "
-        >
+    border-b
+    lg:border-b-0
+
+    lg:border-r
+    border-zinc-800
+  "
+>
 
           <Pipeline
             analysis={analysis}
@@ -149,7 +154,11 @@ if (result?.report) {
 
         </div>
 
-        <div className="col-span-4">
+        <div
+  className="
+    lg:col-span-4
+  "
+>
 
           <SystemLog
             analysis={analysis}
